@@ -1,8 +1,7 @@
 # Hi, I'm Ashish Anand 👋  
+Aspiring Software Engineer | Open-Source Enthusiast | Problem Solver
 
-##**Aspiring Software Engineer | Open-Source Enthusiast | Problem Solver**
-
-A passionate Computer Science graduate student at the University of Florida. My journey in tech is fueled by a love for creating impactful solutions, whether it's building scalable web applications, levearging Healthcare and Fintech Industry by provide robust solutions to different problems, and enhancing accessibility, or diving deep into data-intensive algorithms.
+## A passionate Computer Science graduate student at the University of Florida. My journey in tech is fueled by a love for creating impactful solutions, whether it's building scalable web applications, levearging Healthcare and Fintech Industry by provide robust solutions to different problems, and enhancing accessibility, or diving deep into data-intensive algorithms.
 ---
 💻 What I Do
 - Frontend & UI Design: Crafting responsive and intuitive user interfaces with React, Material-UI, and Bootstrap.

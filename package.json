@@ -2,6 +2,16 @@
   "name": "pratiksha-portfolio",
   "version": "0.1.0",
   "private": true,
+  "description": "Pratiksha's Product Design Portfolio - Showcasing UX/UI Design, Prototyping, and Information Architecture skills",
+  "keywords": [
+    "portfolio",
+    "product-design",
+    "ux-design",
+    "ui-design",
+    "prototyping"
+  ],
+  "author": "Ashish Anand",
+  "license": "MIT",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

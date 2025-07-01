@@ -556,8 +556,8 @@ body.light-mode .profile-image::after {
 }
 
 .work-item-button {
-  background: rgba(255, 255, 255, 0.9);
-  color: #1a202c;
+  background: #FFFFFF;
+  color: #18181B;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
@@ -569,17 +569,17 @@ body.light-mode .profile-image::after {
 }
 
 .work-item-button:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
 }
 
 .work-item-button.light-mode {
-  background: #1a202c !important;
-  color: white !important;
+  background: #4282B0 !important;
+  color: #F5F5F5 !important;
 }
 
 .work-item-button.light-mode:hover {
-  background: #2d3748 !important;
+  background: rgba(66, 130, 176, 0.8) !important;
 }
 
 /* More Work Section */

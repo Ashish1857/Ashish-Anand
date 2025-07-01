@@ -3,9 +3,48 @@ import React, { useState, useRef, useEffect } from "react";
 import { Grid, Box } from "@mui/material";
 import SpaceBackground from "../components/SpaceBackground";
 import LightModeBackground from "../components/LightModeBackground";
+import WorkItem from "../components/WorkItem";
+import SkillTag from "../components/SkillTag";
 import "../styles/Navigation.css";
 import "../styles/Animations.css";
 import "../styles/Portfolio.css";
+
+// Constants
+const WORK_ITEMS = [
+  {
+    id: 'erpnext',
+    image: '/erp.png',
+    title: 'ERPNext',
+    description: 'I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.'
+  },
+  {
+    id: 'clevertap',
+    image: '/clevertap.png',
+    title: 'Clevertap',
+    description: 'Designed visually engaging pages to support CleverTap\'s customer engagement goals.'
+  },
+  {
+    id: 'ecoden',
+    image: '/ecoden.png',
+    title: 'Ecoden',
+    description: 'Visual design for a smart home app that makes connected living effortless.'
+  },
+  {
+    id: 'asign',
+    image: '/asign.png',
+    title: 'Asign.art',
+    description: 'Crafted clean, expressive web designs to elevate artists\' presence on the Asign platform.'
+  }
+];
+
+const SKILL_TAGS = [
+  { id: 'illustration', icon: '🎨', title: 'Illustration' },
+  { id: 'prototyping', icon: '📱', title: 'Prototyping' },
+  { id: 'htmlcss', icon: '💻', title: 'HTML & CSS' },
+  { id: 'uxui', icon: '🎭', title: 'UX / UI' },
+  { id: 'infoarch', icon: '🏗️', title: 'Info Architecture' },
+  { id: 'sitemaps', icon: '🗺️', title: 'Site Maps' }
+];
 
 export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -123,54 +162,16 @@ export default function Portfolio() {
           </div>
 
           <div className="skills-container" ref={skillsContainerRef}>
-            <div 
-              className={`skill-tag illustration ${isAnimating.illustration ? 'bouncing' : ''}`}
-              data-skill-id="illustration"
-              onMouseDown={(e) => handleMouseDown(e, 'illustration')}
-            >
-              <span className="icon">🎨</span>
-              Illustration
-            </div>
-            <div 
-              className={`skill-tag prototyping ${isAnimating.prototyping ? 'bouncing' : ''}`}
-              data-skill-id="prototyping"
-              onMouseDown={(e) => handleMouseDown(e, 'prototyping')}
-            >
-              <span className="icon">📱</span>
-              Prototyping
-            </div>
-            <div 
-              className={`skill-tag html-css ${isAnimating.htmlcss ? 'bouncing' : ''}`}
-              data-skill-id="htmlcss"
-              onMouseDown={(e) => handleMouseDown(e, 'htmlcss')}
-            >
-              <span className="icon">💻</span>
-              HTML & CSS
-            </div>
-            <div 
-              className={`skill-tag ux-ui ${isAnimating.uxui ? 'bouncing' : ''}`}
-              data-skill-id="uxui"
-              onMouseDown={(e) => handleMouseDown(e, 'uxui')}
-            >
-              <span className="icon">🎭</span>
-              UX / UI
-            </div>
-            <div 
-              className={`skill-tag info-architecture ${isAnimating.infoarch ? 'bouncing' : ''}`}
-              data-skill-id="infoarch"
-              onMouseDown={(e) => handleMouseDown(e, 'infoarch')}
-            >
-              <span className="icon">🏗️</span>
-              Info Architecture
-            </div>
-            <div 
-              className={`skill-tag site-maps ${isAnimating.sitemaps ? 'bouncing' : ''}`}
-              data-skill-id="sitemaps"
-              onMouseDown={(e) => handleMouseDown(e, 'sitemaps')}
-            >
-              <span className="icon">🗺️</span>
-              Site Maps
-            </div>
+            {SKILL_TAGS.map(skill => (
+              <SkillTag
+                key={skill.id}
+                id={skill.id}
+                icon={skill.icon}
+                title={skill.title}
+                isAnimating={isAnimating[skill.id]}
+                onMouseDown={(e) => handleMouseDown(e, skill.id)}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -183,65 +184,15 @@ export default function Portfolio() {
           </h2>
           
           <div className="work-list">
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                <img src="/erp.png" alt="ERPNext project showcase" />
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                ERPNext
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
-            
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                {/* Image will be added here later */}
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                Clevertap
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Designed visually engaging pages to support CleverTap's customer engagement goals.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
-            
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                {/* Image will be added here later */}
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                Ecoden
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Visual design for a smart home app that makes connected living effortless.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
-            
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                {/* Image will be added here later */}
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                Asign.art
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Crafted clean, expressive web designs to elevate artists' presence on the Asign platform.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
+            {WORK_ITEMS.map(work => (
+              <WorkItem
+                key={work.id}
+                image={work.image}
+                title={work.title}
+                description={work.description}
+                isDarkMode={isDarkMode}
+              />
+            ))}
           </div>
         </div>
       </div>

@@ -58,7 +58,7 @@ export default function LightModeBackground() {
           width: 50px;
           height: 40px;
           font-size: 2.5rem;
-          animation: fly-and-land 12s ease-in-out infinite;
+          animation: fly-and-land 12s ease-in-out 1;
           z-index: 5;
         }
         

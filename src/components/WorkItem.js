@@ -2,7 +2,8 @@ import React from "react";
 
 export default function WorkItem({ image, title, description, isDarkMode, projectId }) {
   const handleCaseStudyClick = () => {
-    // Use window.location.href for full page reload
+    // Store the project ID in sessionStorage for navigation reference
+    sessionStorage.setItem('lastViewedCaseStudy', projectId);
     window.location.href = `/case-study/${projectId}`;
   };
 

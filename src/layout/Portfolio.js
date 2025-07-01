@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import SpaceBackground from "../components/SpaceBackground";
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
@@ -57,6 +57,7 @@ export default function Portfolio() {
   const [throwVelocity, setThrowVelocity] = useState({ x: 0, y: 0 });
   const skillsContainerRef = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -65,6 +66,46 @@ export default function Portfolio() {
   React.useEffect(() => {
     document.body.className = isDarkMode ? '' : 'light-mode';
   }, [isDarkMode]);
+
+  React.useEffect(() => {
+    if (location.state?.scrollToCaseStudy) {
+      setTimeout(() => {
+        const caseStudyId = location.state.scrollToCaseStudy;
+        // Find the specific work item by its project ID
+        const workItems = document.querySelectorAll('.work-item');
+        let targetItem = null;
+        
+        workItems.forEach((item, index) => {
+          if (WORK_ITEMS[index]?.id === caseStudyId) {
+            targetItem = item;
+          }
+        });
+        
+        if (targetItem) {
+          targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          // Fallback to featured section if specific item not found
+          const featuredSection = document.querySelector('.featured-work-section');
+          if (featuredSection) {
+            featuredSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 100);
+      
+      // Clear the state
+      window.history.replaceState({}, document.title);
+    } else if (location.state?.scrollToFeatured) {
+      setTimeout(() => {
+        const featuredSection = document.querySelector('.featured-work-section');
+        if (featuredSection) {
+          featuredSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      
+      // Clear the state to prevent scrolling on subsequent renders
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
 
   const handleMouseDown = (e, skillId) => {
     e.preventDefault();

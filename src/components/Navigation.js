@@ -14,7 +14,22 @@ export default function Navigation() {
   const [isInFeaturedSection, setIsInFeaturedSection] = useState(false);
 
   const handleHomeClick = () => {
-    navigate("/");
+    const currentPath = location.pathname;
+
+    if (currentPath.includes("/case-study/")) {
+      // Get the case study ID from the URL or sessionStorage
+      const caseStudyId =
+        currentPath.split("/case-study/")[1] ||
+        sessionStorage.getItem("lastViewedCaseStudy");
+      navigate("/", { state: { scrollToCaseStudy: caseStudyId } });
+    } else {
+      // If already on home, scroll to top
+      if (currentPath === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        navigate("/");
+      }
+    }
   };
 
   const handleFeaturedClick = () => {

@@ -2,6 +2,14 @@
 
 A modern, interactive portfolio website showcasing product design work with stunning animations and responsive design.
 
+## 📸 Preview
+
+### Dark Mode
+![Dark Mode Preview](public/preview-dark.png)
+
+### Light Mode
+![Light Mode Preview](public/preview-light.png)
+
 ## ✨ Features
 
 - **🌓 Dual Theme Support**: Seamless dark/light mode toggle with persistent preferences

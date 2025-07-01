@@ -294,7 +294,7 @@ html, body {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
   margin: 0;
-  font-family: 'Inria Serif', serif;
+  font-family: 'Helvetica Neue';
   transition: color 0.3s ease;
   text-align: left;
 }
@@ -527,7 +527,7 @@ body.light-mode .profile-image::after {
 
 .work-item-title {
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 500;
   color: white;
   margin: 0 0 1.5rem 0;
   font-family: 'Inria Serif', serif;
@@ -544,8 +544,8 @@ body.light-mode .profile-image::after {
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
   margin: 0 0 2.5rem 0;
-  font-family: 'Inria Serif', serif;
-  max-width: 900px;
+  font-family: 'Helvetica Neue';
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2.5rem;
@@ -565,7 +565,7 @@ body.light-mode .profile-image::after {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Inria Serif', serif;
+  font-family: 'Helvetica Neue';
 }
 
 .work-item-button:hover {

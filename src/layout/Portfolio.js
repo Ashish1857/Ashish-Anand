@@ -91,12 +91,11 @@ export default function Portfolio() {
             <img src="/Home.png" alt="Home" />
           </div>
           <div className="nav-icon">
-            <img src="/Docs.png" alt="Documents" />
-          </div>
-          <div className="nav-icon">
             <img src="/present.png" alt="Presentation" />
           </div>
-          
+          <div className="nav-icon">
+            <img src="/Docs.png" alt="Documents" />
+          </div>
           <div className="nav-separator"></div>
           
           <div className="spotify-icon">
@@ -184,15 +183,65 @@ export default function Portfolio() {
           </h2>
           
           <div className="work-list">
-            {WORK_ITEMS.map(work => (
-              <WorkItem
-                key={work.id}
-                image={work.image}
-                title={work.title}
-                description={work.description}
-                isDarkMode={isDarkMode}
-              />
-            ))}
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                <img src="/erp.png" alt="ERPNext project showcase" />
+              </div>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                E R P Next
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+            
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                {/* Image will be added here later */}
+              </div>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                Clevertap
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                Designed visually engaging pages to support CleverTap's customer engagement goals.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+            
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                {/* Image will be added here later */}
+              </div>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                Ecoden
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                Visual design for a smart home app that makes connected living effortless.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+            
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                {/* Image will be added here later */}
+              </div>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                Asign.art
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                Crafted clean, expressive web designs to elevate artists' presence on the Asign platform.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
           </div>
         </div>
       </div>

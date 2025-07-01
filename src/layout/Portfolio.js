@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useRef, useEffect } from "react";
-import { Grid, Box } from "@mui/material";
+import React, { useState, useRef } from "react";
 import SpaceBackground from "../components/SpaceBackground";
-import LightModeBackground from "../components/LightModeBackground";
+import Navigation from "../components/Navigation";
+import HeroSection from "../components/HeroSection";
 import WorkItem from "../components/WorkItem";
 import SkillTag from "../components/SkillTag";
+import MoreWorkGrid from "../components/MoreWorkGrid";
 import "../styles/Navigation.css";
 import "../styles/Animations.css";
 import "../styles/Portfolio.css";
@@ -85,69 +86,9 @@ export default function Portfolio() {
 
   return (
     <SpaceBackground isDarkMode={isDarkMode}>
-      <div className="nav-border">
-        <div className="nav-content">
-          <div className="nav-icon">
-            <img src="/Home.png" alt="Home" />
-          </div>
-          <div className="nav-icon">
-            <img src="/present.png" alt="Presentation" />
-          </div>
-          <div className="nav-icon">
-            <img src="/Docs.png" alt="Documents" />
-          </div>
-          <div className="nav-separator"></div>
-          
-          <div className="spotify-icon">
-            <img src="/spotify.png" alt="Spotify" />
-          </div>
-        </div>
-      </div>
-
-      <div className="main-content" style={{
-        backgroundImage: isDarkMode ? 'url(/stars.png)' : 'none',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative'
-      }}>
-        {!isDarkMode && <LightModeBackground />}
-        
-        <div className="text-content">
-          <div className="hello-row">
-            <h1 className={`hello-text ${!isDarkMode ? 'light-mode' : ''}`}>Hello</h1>
-            
-            <div className="theme-toggle" onClick={toggleTheme}>
-              <div className={`toggle-button ${isDarkMode ? 'dark' : 'light'}`}>
-                <div className="moon-container">
-                  <img 
-                    src={isDarkMode ? '/dark-toggle.png' : '/light-toggle.png'} 
-                    alt="Theme Toggle"
-                    style={{ 
-                      width: '144px', 
-                      height: '78px', 
-                      objectFit: 'cover',
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="subtitle-row">
-            <h2 className={`subtitle-text ${!isDarkMode ? 'light-mode' : ''}`}>
-              I'm <span className="highlight">Pratiksha</span> a
-            </h2>
-            
-            <div className={`product-designer-row ${!isDarkMode ? 'light-mode' : ''}`}>
-              Product Designer
-              <div className="profile-image">
-                <img src="/profile.png" alt="Pratiksha" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Navigation />
+      <HeroSection isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      
       <div className="what-do-section">
         <div className="what-do-content">
           <h2 className={`what-do-title ${!isDarkMode ? 'light-mode' : ''}`}>
@@ -183,65 +124,15 @@ export default function Portfolio() {
           </h2>
           
           <div className="work-list">
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                <img src="/erp.png" alt="ERPNext project showcase" />
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                E R P Next
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
-            
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                {/* Image will be added here later */}
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                Clevertap
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Designed visually engaging pages to support CleverTap's customer engagement goals.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
-            
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                {/* Image will be added here later */}
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                Ecoden
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Visual design for a smart home app that makes connected living effortless.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
-            
-            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
-              <div className="work-item-image">
-                {/* Image will be added here later */}
-              </div>
-              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
-                Asign.art
-              </h3>
-              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Crafted clean, expressive web designs to elevate artists' presence on the Asign platform.
-              </p>
-              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
-                Read case study
-              </button>
-            </div>
+            {WORK_ITEMS.map(work => (
+              <WorkItem
+                key={work.id}
+                image={work.image}
+                title={work.title}
+                description={work.description}
+                isDarkMode={isDarkMode}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -252,54 +143,7 @@ export default function Portfolio() {
           <h2 className={`more-work-title ${!isDarkMode ? 'light-mode' : ''}`}>
             More Work
           </h2>
-          
-          <Box sx={{ 
-            flexGrow: 1, 
-            mt: 4, 
-            maxWidth: '100%',
-            width: '100%',
-            margin: '0 auto'
-          }}>
-            {/* Top row */}
-            <Grid container spacing={2} sx={{ height: '757px', mb: 2 }}>
-              {/* Left column - two small boxes (50% width) */}
-              <Grid item xs={12} md={6}>
-                <Grid container spacing={2} sx={{ height: '100%' }}>
-                  <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: 'calc(50% - 8px)' } }}>
-                    <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
-                      <div className="more-work-image-placeholder"></div>
-                    </div>
-                  </Grid>
-                  <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: 'calc(50% - 8px)' } }}>
-                    <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
-                      <div className="more-work-image-placeholder"></div>
-                    </div>
-                  </Grid>
-                </Grid>
-              </Grid>
-              
-              {/* Right column - tall box (50% width, 666x757) */}
-              <Grid item xs={12} md={6}>
-                <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '97%' }}>
-                  <div className="more-work-image-placeholder"></div>
-                </div>
-              </Grid>
-            </Grid>
-            
-            {/* Bottom row - two boxes with different widths */}
-            <Grid container spacing={2} sx={{ height: '400px' }}>
-              <Grid item xs={12} md={4}>
-                <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
-                  <div className="more-work-image-placeholder"></div>
-                </div>
-              </Grid>
-              <Grid item xs={12} md={8}>
-                <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
-                  <div className="more-work-image-placeholder"></div>
-                </div>
-              </Grid>
-            </Grid>
-          </Box>
+          <MoreWorkGrid isDarkMode={isDarkMode} />
         </div>
       </div>
     </SpaceBackground>

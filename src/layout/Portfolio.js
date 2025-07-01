@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Grid, Box } from "@mui/material";
 import SpaceBackground from "../components/SpaceBackground";
-import StarField from "../components/StarField";
+import LightModeBackground from "../components/LightModeBackground";
 import "../styles/Navigation.css";
 import "../styles/Animations.css";
 import "../styles/Portfolio.css";
 
 export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(true);
+  const [draggedElement, setDraggedElement] = useState(null);
+  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [isAnimating, setIsAnimating] = useState({});
+  const [mousePositions, setMousePositions] = useState([]);
+  const [throwVelocity, setThrowVelocity] = useState({ x: 0, y: 0 });
+  const skillsContainerRef = useRef(null);
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -17,9 +23,28 @@ export default function Portfolio() {
     document.body.className = isDarkMode ? '' : 'light-mode';
   }, [isDarkMode]);
 
+  const handleMouseDown = (e, skillId) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const element = e.currentTarget;
+    const rect = element.getBoundingClientRect();
+    
+    setDraggedElement(skillId);
+    setDragOffset({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+    
+    setMousePositions([{ x: e.clientX, y: e.clientY, time: Date.now() }]);
+    
+    element.style.zIndex = '1000';
+    element.style.transition = 'none';
+    element.style.cursor = 'grabbing';
+    element.style.transform = 'translate3d(0,0,0)';
+  };
+
   return (
     <SpaceBackground isDarkMode={isDarkMode}>
-      <StarField />
       <div className="nav-border">
         <div className="nav-content">
           <div className="nav-icon">
@@ -40,7 +65,15 @@ export default function Portfolio() {
         </div>
       </div>
 
-      <div className="main-content">
+      <div className="main-content" style={{
+        backgroundImage: isDarkMode ? 'url(/stars.png)' : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative'
+      }}>
+        {!isDarkMode && <LightModeBackground />}
+        
         <div className="text-content">
           <div className="hello-row">
             <h1 className={`hello-text ${!isDarkMode ? 'light-mode' : ''}`}>Hello</h1>
@@ -48,16 +81,16 @@ export default function Portfolio() {
             <div className="theme-toggle" onClick={toggleTheme}>
               <div className={`toggle-button ${isDarkMode ? 'dark' : 'light'}`}>
                 <div className="moon-container">
-                  <div className="moon-image"></div>
-                  <div className="toggle-stars">
-                    <div className="toggle-star"></div>
-                    <div className="toggle-star"></div>
-                    <div className="toggle-star"></div>
-                    <div className="toggle-star"></div>
-                    <div className="toggle-star"></div>
-                  </div>
+                  <img 
+                    src={isDarkMode ? '/dark-toggle.png' : '/light-toggle.png'} 
+                    alt="Theme Toggle"
+                    style={{ 
+                      width: '144px', 
+                      height: '78px', 
+                      objectFit: 'cover',
+                    }}
+                  />
                 </div>
-                <div className="sun-indicator"></div>
               </div>
             </div>
           </div>
@@ -88,28 +121,52 @@ export default function Portfolio() {
             </p>
           </div>
 
-          <div className="skills-container">
-            <div className="skill-tag illustration">
+          <div className="skills-container" ref={skillsContainerRef}>
+            <div 
+              className={`skill-tag illustration ${isAnimating.illustration ? 'bouncing' : ''}`}
+              data-skill-id="illustration"
+              onMouseDown={(e) => handleMouseDown(e, 'illustration')}
+            >
               <span className="icon">🎨</span>
               Illustration
             </div>
-            <div className="skill-tag prototyping">
+            <div 
+              className={`skill-tag prototyping ${isAnimating.prototyping ? 'bouncing' : ''}`}
+              data-skill-id="prototyping"
+              onMouseDown={(e) => handleMouseDown(e, 'prototyping')}
+            >
               <span className="icon">📱</span>
               Prototyping
             </div>
-            <div className="skill-tag html-css">
+            <div 
+              className={`skill-tag html-css ${isAnimating.htmlcss ? 'bouncing' : ''}`}
+              data-skill-id="htmlcss"
+              onMouseDown={(e) => handleMouseDown(e, 'htmlcss')}
+            >
               <span className="icon">💻</span>
               HTML & CSS
             </div>
-            <div className="skill-tag ux-ui">
+            <div 
+              className={`skill-tag ux-ui ${isAnimating.uxui ? 'bouncing' : ''}`}
+              data-skill-id="uxui"
+              onMouseDown={(e) => handleMouseDown(e, 'uxui')}
+            >
               <span className="icon">🎭</span>
               UX / UI
             </div>
-            <div className="skill-tag info-architecture">
+            <div 
+              className={`skill-tag info-architecture ${isAnimating.infoarch ? 'bouncing' : ''}`}
+              data-skill-id="infoarch"
+              onMouseDown={(e) => handleMouseDown(e, 'infoarch')}
+            >
               <span className="icon">🏗️</span>
               Info Architecture
             </div>
-            <div className="skill-tag site-maps">
+            <div 
+              className={`skill-tag site-maps ${isAnimating.sitemaps ? 'bouncing' : ''}`}
+              data-skill-id="sitemaps"
+              onMouseDown={(e) => handleMouseDown(e, 'sitemaps')}
+            >
               <span className="icon">🗺️</span>
               Site Maps
             </div>
@@ -119,18 +176,21 @@ export default function Portfolio() {
 
       {/* Featured Work Section */}
       <div className={`featured-work-section ${!isDarkMode ? 'light-mode' : ''}`}>
-        <div className="featured-work-container">
+        <div className="featured-work-container" style={{ margin: '0 auto', maxWidth: '90%' }}>
           <h2 className={`featured-work-title ${!isDarkMode ? 'light-mode' : ''}`}>
             Featured Work
           </h2>
           
-          <div className="work-grid">
+          <div className="work-list">
             <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                <img src="/erp.png" alt="ERPNext project showcase" />
+              </div>
               <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
                 ERPNext
               </h3>
               <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                I worked on improving conversion from trial users to paying users focusing on usability improvements and user experience.
+                I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.
               </p>
               <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
                 Read case study
@@ -138,11 +198,14 @@ export default function Portfolio() {
             </div>
             
             <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                {/* Image will be added here later */}
+              </div>
               <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
                 Clevertap
               </h3>
               <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Clevertap initially manages to improve CleverTap's customer engagement goals.
+                Designed visually engaging pages to support CleverTap's customer engagement goals.
               </p>
               <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
                 Read case study
@@ -150,11 +213,14 @@ export default function Portfolio() {
             </div>
             
             <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                {/* Image will be added here later */}
+              </div>
               <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
                 Ecoden
               </h3>
               <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Visual design and advanced functional that humans need to reach when designing.
+                Visual design for a smart home app that makes connected living effortless.
               </p>
               <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
                 Read case study
@@ -162,11 +228,14 @@ export default function Portfolio() {
             </div>
             
             <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <div className="work-item-image">
+                {/* Image will be added here later */}
+              </div>
               <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
                 Asign.art
               </h3>
               <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
-                Digital work experience with clients to enhance a long game and the final platform.
+                Crafted clean, expressive web designs to elevate artists' presence on the Asign platform.
               </p>
               <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
                 Read case study

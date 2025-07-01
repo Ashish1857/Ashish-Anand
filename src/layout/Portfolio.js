@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef, useEffect } from "react";
 import { Grid, Box } from "@mui/material";
 import SpaceBackground from "../components/SpaceBackground";

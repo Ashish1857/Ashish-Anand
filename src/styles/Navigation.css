@@ -66,6 +66,21 @@
   height: 32px;
 }
 
+.nav-icon.active,
+.nav-icon.featured-nav:active,
+.nav-icon.featured-nav:focus {
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 1px;
+}
+
+.nav-icon.active img,
+.nav-icon.featured-nav:active img,
+.nav-icon.featured-nav:focus img {
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
 .nav-separator {
   width: 1px;
   height: 40px;
@@ -88,4 +103,56 @@
 .spotify-icon img {
   width: 48px;
   height: 48px;
+}
+
+@media (max-width: 768px) {
+  .nav-border {
+    top: 15px;
+    width: 280px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  
+  .nav-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .nav-icon img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .spotify-icon img {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-border {
+    top: 10px;
+    width: 260px;
+    height: 65px;
+    margin-bottom: 30px;
+  }
+  
+  .nav-content {
+    gap: 15px;
+  }
+  
+  .nav-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .nav-icon img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .spotify-icon img {
+    width: 38px;
+    height: 38px;
+  }
 }

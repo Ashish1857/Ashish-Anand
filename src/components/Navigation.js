@@ -1,22 +1,98 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "../styles/Navigation.css";
 
 const NAV_ICONS = [
   { src: "/Home.png", alt: "Home" },
   { src: "/present.png", alt: "Presentation" },
-  { src: "/Docs.png", alt: "Documents" }
+  { src: "/Docs.png", alt: "Documents" },
 ];
 
 export default function Navigation() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [isInFeaturedSection, setIsInFeaturedSection] = useState(false);
+
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
+  const handleFeaturedClick = () => {
+    if (location.pathname === "/") {
+      // If on home page, scroll to featured work section
+      const featuredSection = document.querySelector(".featured-work-section");
+      if (featuredSection) {
+        featuredSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // If on case study page, navigate to home and then scroll
+      navigate("/", { state: { scrollToFeatured: true } });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (location.pathname === "/") {
+        const featuredSection = document.querySelector(".featured-work-section");
+        const mainContent = document.querySelector(".main-content");
+
+        if (featuredSection && mainContent) {
+          const featuredRect = featuredSection.getBoundingClientRect();
+          const mainRect = mainContent.getBoundingClientRect();
+
+          // Check if we're in the main content section (top of page)
+          const isInMainSection = mainRect.bottom > window.innerHeight / 2;
+
+          // Check if we're in the featured section
+          const isInFeaturedSection =
+            featuredRect.top <= window.innerHeight / 2 &&
+            featuredRect.bottom >= window.innerHeight / 2;
+
+          // Priority: if in featured section, show featured active
+          // Otherwise, if in main section, show home active
+          setIsInFeaturedSection(isInFeaturedSection);
+        }
+      } else {
+        setIsInFeaturedSection(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname]);
+
+  const isCaseStudyPage = location.pathname.includes("/case-study/");
+  const isHomePage = location.pathname === "/";
+  const shouldShowHomeActive = isHomePage && !isInFeaturedSection;
+  const shouldShowPresentActive =
+    (isHomePage && isInFeaturedSection) || isCaseStudyPage;
+
   return (
     <div className="nav-border">
       <div className="nav-content">
-        {NAV_ICONS.map((icon, index) => (
-          <div key={index} className="nav-icon">
-            <img src={icon.src} alt={icon.alt} />
-          </div>
-        ))}
+        <div
+          className={`nav-icon ${shouldShowHomeActive ? "active" : ""}`}
+          onClick={handleHomeClick}
+          style={{ cursor: "pointer" }}
+        >
+          <img src="/Home.png" alt="Home" />
+        </div>
+
+        <div
+          className={`nav-icon ${shouldShowPresentActive ? "active" : ""}`}
+          onClick={handleFeaturedClick}
+          style={{ cursor: "pointer" }}
+        >
+          <img src="/present.png" alt="Presentation" />
+        </div>
+        <div className="nav-icon featured-nav">
+          <img src="/Docs.png" alt="Documents" />
+        </div>
+
         <div className="nav-separator"></div>
-        
+
         <div className="spotify-icon">
           <img src="/spotify.png" alt="Spotify" />
         </div>

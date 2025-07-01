@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import SpaceBackground from "../components/SpaceBackground";
 import Navigation from "../components/Navigation";
 import HeroSection from "../components/HeroSection";
@@ -55,6 +56,7 @@ export default function Portfolio() {
   const [mousePositions, setMousePositions] = useState([]);
   const [throwVelocity, setThrowVelocity] = useState({ x: 0, y: 0 });
   const skillsContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode);
@@ -82,6 +84,12 @@ export default function Portfolio() {
     element.style.transition = 'none';
     element.style.cursor = 'grabbing';
     element.style.transform = 'translate3d(0,0,0)';
+  };
+
+  const handleCaseStudyClick = (workId) => {
+    if (workId === 'erpnext') {
+      navigate('/case-study/erpnext');
+    }
   };
 
   return (
@@ -131,6 +139,7 @@ export default function Portfolio() {
                 title={work.title}
                 description={work.description}
                 isDarkMode={isDarkMode}
+                projectId={work.id}
               />
             ))}
           </div>

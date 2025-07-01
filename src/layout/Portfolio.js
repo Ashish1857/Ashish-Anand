@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Grid, Box } from "@mui/material";
 import SpaceBackground from "../components/SpaceBackground";
 import StarField from "../components/StarField";
 import "../styles/Navigation.css";
@@ -113,6 +114,122 @@ export default function Portfolio() {
               Site Maps
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Featured Work Section */}
+      <div className={`featured-work-section ${!isDarkMode ? 'light-mode' : ''}`}>
+        <div className="featured-work-container">
+          <h2 className={`featured-work-title ${!isDarkMode ? 'light-mode' : ''}`}>
+            Featured Work
+          </h2>
+          
+          <div className="work-grid">
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                ERPNext
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                I worked on improving conversion from trial users to paying users focusing on usability improvements and user experience.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+            
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                Clevertap
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                Clevertap initially manages to improve CleverTap's customer engagement goals.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+            
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                Ecoden
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                Visual design and advanced functional that humans need to reach when designing.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+            
+            <div className={`work-item ${!isDarkMode ? 'light-mode' : ''}`}>
+              <h3 className={`work-item-title ${!isDarkMode ? 'light-mode' : ''}`}>
+                Asign.art
+              </h3>
+              <p className={`work-item-description ${!isDarkMode ? 'light-mode' : ''}`}>
+                Digital work experience with clients to enhance a long game and the final platform.
+              </p>
+              <button className={`work-item-button ${!isDarkMode ? 'light-mode' : ''}`}>
+                Read case study
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* More Work Section */}
+      <div className={`more-work-section ${!isDarkMode ? 'light-mode' : ''}`}>
+        <div className="more-work-container">
+          <h2 className={`more-work-title ${!isDarkMode ? 'light-mode' : ''}`}>
+            More Work
+          </h2>
+          
+          <Box sx={{ 
+            flexGrow: 1, 
+            mt: 4, 
+            maxWidth: '100%',
+            width: '100%',
+            margin: '0 auto'
+          }}>
+            {/* Top row */}
+            <Grid container spacing={2} sx={{ height: '757px', mb: 2 }}>
+              {/* Left column - two small boxes (50% width) */}
+              <Grid item xs={12} md={6}>
+                <Grid container spacing={2} sx={{ height: '100%' }}>
+                  <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: 'calc(50% - 8px)' } }}>
+                    <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
+                      <div className="more-work-image-placeholder"></div>
+                    </div>
+                  </Grid>
+                  <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: 'calc(50% - 8px)' } }}>
+                    <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
+                      <div className="more-work-image-placeholder"></div>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Grid>
+              
+              {/* Right column - tall box (50% width, 666x757) */}
+              <Grid item xs={12} md={6}>
+                <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '97%' }}>
+                  <div className="more-work-image-placeholder"></div>
+                </div>
+              </Grid>
+            </Grid>
+            
+            {/* Bottom row - two boxes with different widths */}
+            <Grid container spacing={2} sx={{ height: '400px' }}>
+              <Grid item xs={12} md={4}>
+                <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
+                  <div className="more-work-image-placeholder"></div>
+                </div>
+              </Grid>
+              <Grid item xs={12} md={8}>
+                <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
+                  <div className="more-work-image-placeholder"></div>
+                </div>
+              </Grid>
+            </Grid>
+          </Box>
         </div>
       </div>
     </SpaceBackground>

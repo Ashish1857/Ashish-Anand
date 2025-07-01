@@ -8,7 +8,23 @@ const NAV_ICONS = [
   { src: "/Docs.png", alt: "Documents" },
 ];
 
-export default function Navigation() {
+export default function Navigation({ isDarkMode, setIsDarkMode }) {
+  // Use local state if no props provided (for Portfolio page)
+  const [localTheme, setLocalTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("portfolioTheme");
+    return savedTheme ? JSON.parse(savedTheme) : true;
+  });
+
+  const currentIsDarkMode = isDarkMode !== undefined ? isDarkMode : localTheme;
+  const currentSetIsDarkMode = setIsDarkMode || setLocalTheme;
+
+  const toggleTheme = () => {
+    const newTheme = !currentIsDarkMode;
+    currentSetIsDarkMode(newTheme);
+    localStorage.setItem("portfolioTheme", JSON.stringify(newTheme));
+    document.body.className = newTheme ? "" : "light-mode";
+  };
+
   const navigate = useNavigate();
   const location = useLocation();
   const [isInFeaturedSection, setIsInFeaturedSection] = useState(false);

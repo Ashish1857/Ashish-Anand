@@ -49,7 +49,10 @@ const SKILL_TAGS = [
 ];
 
 export default function Portfolio() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('portfolioTheme');
+    return savedTheme ? JSON.parse(savedTheme) : true;
+  });
   const [draggedElement, setDraggedElement] = useState(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isAnimating, setIsAnimating] = useState({});
@@ -60,7 +63,9 @@ export default function Portfolio() {
   const location = useLocation();
 
   const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    localStorage.setItem('portfolioTheme', JSON.stringify(newTheme));
   };
 
   React.useEffect(() => {

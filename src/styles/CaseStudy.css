@@ -1,13 +1,14 @@
 .case-study {
   background: transparent;
   min-height: 100vh;
-  padding-top: 12rem;
-  margin: 0 40px;
+ 
+  padding: 0 40px;
+   padding-top: 12rem;
   transition: background-color 0.3s ease;
 }
 
 .case-study.light-mode {
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
 .case-study-hero {
@@ -56,6 +57,10 @@
   font-family: 'Helvetica Neue', sans-serif;
   text-align: left;
   grid-column: 2;
+}
+
+.case-study-description.light-mode {
+  color: #1a202c;
 }
 
 @media (max-width: 768px) {

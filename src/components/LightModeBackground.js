@@ -53,15 +53,17 @@ export default function LightModeBackground() {
         
         @keyframes float-cloud1 {
           0%, 100% { transform: translateX(0px) translateY(0px); }
-          25% { transform: translateX(15px) translateY(-8px); }
-          50% { transform: translateX(-10px) translateY(5px); }
-          75% { transform: translateX(8px) translateY(-3px); }
+          25% { transform: translateX(25px) translateY(-15px); }
+          50% { transform: translateX(-20px) translateY(10px); }
+          75% { transform: translateX(15px) translateY(-8px); }
         }
         
         @keyframes float-cloud2 {
           0%, 100% { transform: translateX(0px) translateY(0px); }
-          33% { transform: translateX(-20px) translateY(6px); }
-          66% { transform: translateX(12px) translateY(-10px); }
+          20% { transform: translateX(-30px) translateY(12px); }
+          40% { transform: translateX(20px) translateY(-18px); }
+          60% { transform: translateX(-15px) translateY(8px); }
+          80% { transform: translateX(10px) translateY(-10px); }
         }
       `}</style>
       

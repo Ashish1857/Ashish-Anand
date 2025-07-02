@@ -2,28 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/Navigation.css";
 
-const NAV_ICONS = [
-  { src: "/Home.png", alt: "Home" },
-  { src: "/present.png", alt: "Presentation" },
-  { src: "/Docs.png", alt: "Documents" },
-];
-
 export default function Navigation({ isDarkMode, setIsDarkMode }) {
-  // Use local state if no props provided (for Portfolio page)
-  const [localTheme, setLocalTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("portfolioTheme");
-    return savedTheme ? JSON.parse(savedTheme) : true;
-  });
-
-  const currentIsDarkMode = isDarkMode !== undefined ? isDarkMode : localTheme;
-  const currentSetIsDarkMode = setIsDarkMode || setLocalTheme;
-
-  const toggleTheme = () => {
-    const newTheme = !currentIsDarkMode;
-    currentSetIsDarkMode(newTheme);
-    localStorage.setItem("portfolioTheme", JSON.stringify(newTheme));
-    document.body.className = newTheme ? "" : "light-mode";
-  };
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -69,10 +48,6 @@ export default function Navigation({ isDarkMode, setIsDarkMode }) {
 
         if (featuredSection && mainContent) {
           const featuredRect = featuredSection.getBoundingClientRect();
-          const mainRect = mainContent.getBoundingClientRect();
-
-          // Check if we're in the main content section (top of page)
-          const isInMainSection = mainRect.bottom > window.innerHeight / 2;
 
           // Check if we're in the featured section
           const isInFeaturedSection =

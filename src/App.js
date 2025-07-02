@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Portfolio from './layout/Portfolio';
@@ -8,8 +8,6 @@ import EcodenCaseStudy from './pages/EcodenCaseStudy';
 import AsignCaseStudy from './pages/AsignCaseStudy';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
   return (
     <Router>
       <div className="App">

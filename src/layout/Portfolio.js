@@ -53,11 +53,7 @@ export default function Portfolio() {
     const savedTheme = localStorage.getItem('portfolioTheme');
     return savedTheme ? JSON.parse(savedTheme) : true;
   });
-  const [draggedElement, setDraggedElement] = useState(null);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isAnimating, setIsAnimating] = useState({});
-  const [mousePositions, setMousePositions] = useState([]);
-  const [throwVelocity, setThrowVelocity] = useState({ x: 0, y: 0 });
   const skillsContainerRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -116,15 +112,6 @@ export default function Portfolio() {
     e.preventDefault();
     e.stopPropagation();
     const element = e.currentTarget;
-    const rect = element.getBoundingClientRect();
-    
-    setDraggedElement(skillId);
-    setDragOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    });
-    
-    setMousePositions([{ x: e.clientX, y: e.clientY, time: Date.now() }]);
     
     element.style.zIndex = '1000';
     element.style.transition = 'none';

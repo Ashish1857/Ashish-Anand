@@ -10,43 +10,7 @@ import MoreWorkGrid from "../components/MoreWorkGrid";
 import "../styles/Navigation.css";
 import "../styles/Animations.css";
 import "../styles/Portfolio.css";
-
-// Constants
-const WORK_ITEMS = [
-  {
-    id: 'erpnext',
-    image: '/erp.png',
-    title: 'ERPNext',
-    description: 'I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.'
-  },
-  {
-    id: 'clevertap',
-    image: '/clevertap.png',
-    title: 'Clevertap',
-    description: 'Designed visually engaging pages to support CleverTap\'s customer engagement goals.'
-  },
-  {
-    id: 'ecoden',
-    image: '/ecoden.png',
-    title: 'Ecoden',
-    description: 'Visual design for a smart home app that makes connected living effortless.'
-  },
-  {
-    id: 'asign',
-    image: '/asign.png',
-    title: 'Asign.art',
-    description: 'Crafted clean, expressive web designs to elevate artists\' presence on the Asign platform.'
-  }
-];
-
-const SKILL_TAGS = [
-  { id: 'illustration', icon: '🎨', title: 'Illustration' },
-  { id: 'prototyping', icon: '📱', title: 'Prototyping' },
-  { id: 'htmlcss', icon: '💻', title: 'HTML & CSS' },
-  { id: 'uxui', icon: '🎭', title: 'UX / UI' },
-  { id: 'infoarch', icon: '🏗️', title: 'Info Architecture' },
-  { id: 'sitemaps', icon: '🗺️', title: 'Site Maps' }
-];
+import { WORK_ITEMS, SKILL_TAGS } from "../constant";
 
 export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(() => {

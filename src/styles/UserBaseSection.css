@@ -1,0 +1,102 @@
+.user-base-section {
+  padding: 4rem 0;
+  width: 100%;
+  background: #18181B;
+  transition: background-color 0.3s ease;
+}
+
+.user-base-section.light-mode {
+  background: #ffffff;
+}
+
+.user-base-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.user-base-title {
+  font-size: 56px;
+  font-weight: 300;
+  color: white;
+  font-family: 'Inria Serif', serif;
+  text-align: left;
+  margin-bottom: 3rem;
+  transition: color 0.3s ease;
+}
+
+.user-base-title.light-mode {
+  color: #1a202c;
+}
+
+.user-base-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.user-base-card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-base-card.light-mode {
+  background: #f8f9fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.user-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.user-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.user-title.light-mode {
+  color: #1a202c;
+}
+
+.user-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.user-description.light-mode {
+  color: rgba(26, 32, 44, 0.7);
+}
+
+@media (max-width: 768px) {
+  .user-base-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .user-base-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .user-title {
+    font-size: 1.5rem;
+  }
+  
+  .user-description {
+    font-size: 0.9rem;
+  }
+}

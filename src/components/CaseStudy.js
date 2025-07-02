@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 import Navigation from "./Navigation";
 import SpaceBackground from "./SpaceBackground";
 import ProblemsSection from "./ProblemsSection";
+import UserBaseSection from "./UserBaseSection";
+import GoalSection from "./GoalSection";
+import ProcessSection from "./ProcessSection";
 import "../styles/CaseStudy.css";
 
 export default function CaseStudy({ 
   heroImage = "/clevertap.png", 
   title = "Clevertap", 
   description = "CleverTap Is A Customer Engagement Platform That Helps Brands Build Personalized User Experiences. I Designed The Graphics And Visuals For Key Product Pages Like RenderMax And Intellimend, Helping Users Quickly Understand Complex Product Features Through Clarity-Focused Visuals." ,
-  problemsData = []
+  problemsData = [],
+  isUserBase = 0,
+  userBaseData = [],
+  goalData = null,
+  processData = null
 }) {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('portfolioTheme');
@@ -52,6 +59,21 @@ export default function CaseStudy({
         
         {/* Problems Section */}
         <ProblemsSection isDarkMode={isDarkMode} problemsData={problemsData} />
+        
+        {/* User Base Section - conditionally rendered */}
+        {isUserBase === 1 && (
+          <UserBaseSection isDarkMode={isDarkMode} userBaseData={userBaseData} />
+        )}
+        
+        {/* Goal Section */}
+        {goalData && (
+          <GoalSection isDarkMode={isDarkMode} goalData={goalData} />
+        )}
+        
+        {/* Process Section */}
+        {processData && (
+          <ProcessSection isDarkMode={isDarkMode} processData={processData} />
+        )}
       </div>
     </SpaceBackground>
   );

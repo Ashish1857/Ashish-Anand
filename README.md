@@ -19,6 +19,7 @@ A modern, interactive portfolio website showcasing product design work with stun
 - **🎭 Case Studies**: Detailed project showcases with clean layouts
 - **⭐ Animated Backgrounds**: Dynamic star fields and floating clouds
 - **🎯 Modern UI**: Glassmorphism effects and smooth transitions
+- **🗂️ Centralized Constants**: All static data and strings are managed in `src/constant.js` for maintainability and reusability across the codebase
 
 ## 🛠️ Tech Stack
 
@@ -60,22 +61,33 @@ A modern, interactive portfolio website showcasing product design work with stun
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── Navigation.js    # Animated navigation bar
-│   ├── WorkItem.js      # Portfolio item component
-│   ├── SkillTag.js      # Interactive skill tags
-│   ├── CaseStudy.js     # Case study layout
-│   └── SpaceBackground.js # Dynamic backgrounds
+│   ├── Navigation.js
+│   ├── WorkItem.js
+│   ├── SkillTag.js
+│   ├── CaseStudy.js
+│   └── SpaceBackground.js
 ├── layout/
 │   └── Portfolio.js     # Main portfolio layout
+├── pages/               # Case study and main page files
+│   ├── ERPNextCaseStudy.js
+│   ├── ClevertapCaseStudy.js
+│   ├── EcodenCaseStudy.js
+│   └── AsignCaseStudy.js
 ├── styles/              # CSS modules
-│   ├── Portfolio.css    # Main styles
-│   ├── Navigation.css   # Navigation styles
-│   └── CaseStudy.css    # Case study styles
+│   ├── Portfolio.css
+│   ├── Navigation.css
+│   ├── CaseStudy.css
+│   └── ProcessSection.css
+├── constant.js          # Centralized static data and strings
 └── public/              # Static assets
-    ├── erp.png         # Project images
+    ├── erp.png
     ├── clevertap.png
     ├── ecoden.png
-    └── asign.png
+    ├── asign.png
+    ├── wireframes.png
+    ├── info_arch.png
+    ├── ecoden_des.png
+    └── ...other assets
 ```
 
 ## 🎨 Key Components

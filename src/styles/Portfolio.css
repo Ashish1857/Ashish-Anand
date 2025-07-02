@@ -546,6 +546,7 @@ body.light-mode .profile-image::after {
   margin-bottom: 2rem;
   background: transparent;
   position: relative;
+  border-radius: 9px;
 }
 
 .work-item-image img {

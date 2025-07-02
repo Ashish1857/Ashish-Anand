@@ -1,0 +1,88 @@
+.goal-section {
+  padding: 4rem 0;
+  width: 100%;
+  background: #18181B;
+  transition: background-color 0.3s ease;
+}
+
+.goal-section.light-mode {
+  background: #ffffff;
+}
+
+.goal-container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.goal-title {
+  font-size: 56px;
+  font-weight: 300;
+  color: white;
+  font-family: 'Inria Serif', serif;
+  text-align: left;
+  margin-bottom: 3rem;
+  transition: color 0.3s ease;
+}
+
+.goal-title.light-mode {
+  color: #1a202c;
+}
+
+.goal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: start;
+}
+
+.goal-text {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.goal-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+
+.goal-description.light-mode {
+  color: rgba(26, 32, 44, 0.8);
+}
+
+.goal-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goal-image-display {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .goal-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .goal-title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .goal-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+}

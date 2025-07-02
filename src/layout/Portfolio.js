@@ -143,6 +143,7 @@ export default function Portfolio() {
           </div>
 
           <div className="skills-container" ref={skillsContainerRef}>
+            <ul className="skill-list">
             {SKILL_TAGS.map(skill => (
               <SkillTag
                 key={skill.id}
@@ -153,6 +154,7 @@ export default function Portfolio() {
                 onMouseDown={(e) => handleMouseDown(e, skill.id)}
               />
             ))}
+            </ul>
           </div>
         </div>
       </div>

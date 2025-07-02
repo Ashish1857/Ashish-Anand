@@ -11,16 +11,16 @@ export default function MoreWorkGrid({ isDarkMode }) {
       margin: '0 auto'
     }}>
       {/* Top row */}
-      <Grid container spacing={2} sx={{ height: '757px', mb: 2 }}>
+      <Grid container spacing={2} sx={{ height: '757px'}}>
         {/* Left column - two small boxes (50% width) */}
         <Grid item xs={12} md={6}>
           <Grid container spacing={2} sx={{ height: '100%' }}>
-            <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: 'calc(50% - 8px)' } }}>
+            <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: '50%' } }}>
               <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
                 <div className="more-work-image-placeholder"></div>
               </div>
             </Grid>
-            <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: 'calc(50% - 8px)' } }}>
+            <Grid item xs={6} md={12} sx={{ height: { xs: '100%', md: '50%' } }}>
               <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '100%' }}>
                 <div className="more-work-image-placeholder"></div>
               </div>
@@ -30,7 +30,7 @@ export default function MoreWorkGrid({ isDarkMode }) {
         
         {/* Right column - tall box (50% width, 666x757) */}
         <Grid item xs={12} md={6}>
-          <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '97%' }}>
+          <div className={`more-work-item ${!isDarkMode ? 'light-mode' : ''}`} style={{ height: '98%' }}>
             <div className="more-work-image-placeholder"></div>
           </div>
         </Grid>

@@ -40,7 +40,7 @@ const WORK_ITEMS = [
 ];
 
 const SKILL_TAGS = [
-  { id: 'illustration', icon: '🎨', title: 'Illustration' },
+  { id: 'illustration', icon: '🎨', title: 'Illustration'},
   { id: 'prototyping', icon: '📱', title: 'Prototyping' },
   { id: 'htmlcss', icon: '💻', title: 'HTML & CSS' },
   { id: 'uxui', icon: '🎭', title: 'UX / UI' },
@@ -143,6 +143,7 @@ export default function Portfolio() {
           </div>
 
           <div className="skills-container" ref={skillsContainerRef}>
+            <ul className="skill-list">
             {SKILL_TAGS.map(skill => (
               <SkillTag
                 key={skill.id}
@@ -153,6 +154,7 @@ export default function Portfolio() {
                 onMouseDown={(e) => handleMouseDown(e, skill.id)}
               />
             ))}
+            </ul>
           </div>
         </div>
       </div>

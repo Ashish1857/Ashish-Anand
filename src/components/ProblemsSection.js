@@ -41,7 +41,14 @@ export default function ProblemsSection({ isDarkMode, problemsData = [] }) {
           </div>
           {/* Right side - Frame display */}
           <div className="problems-frame">
-            <div className="frame-container">
+            <div
+              className="frame-container"
+              style={
+                !activeProblem?.frame
+                  ? { visibility: "hidden" }
+                  : undefined
+              }
+            >
               {activeProblem && activeProblem.frame ? (
                 <>
                   <img 

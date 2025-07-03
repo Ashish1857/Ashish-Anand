@@ -85,21 +85,22 @@ export const ECODEN_PROBLEMS = [
 		title: 'Confusing UX flows',
 		description:
 			'Users often struggled to find what they were looking for due to confusing UX flows',
-		frame: '/ecoden-problem-ux.png',
+		frame: '/ecoden_problem1.png',
+        sticker: '/ecoden_probem1_sticker.png',
 	},
 	{
 		id: 'poor-navigation',
 		title: 'Poor Navigation',
 		description:
 			'Existing smart home apps (like Google Home, Tapo, Wipro) had cluttered UIs, with text-heavy screens and poor navigation',
-		frame: '/ecoden-problem-navigation.png',
+		frame: '',
 	},
 	{
 		id: 'deep-research',
 		title: 'Deep Research',
 		description:
 			'Understand industry standards by studying 10-12 smart home apps like Tapo, Wipro, and Google Home',
-		frame: '/ecoden-problem-research.png',
+		frame: '',
 	},
 ];
 
@@ -155,14 +156,15 @@ export const ASIGN_PROBLEMS = [
 		title: 'Choosing correct images',
 		description:
 			'Ensure every image used matched the site\'s aesthetic, even when the client provided poor-quality or cluttered visuals',
-		frame: '/asign-problem-images.png',
+		frame: '/asign_problem1.png',
+        sticker: '/Assign_problem1_sticker.png',
 	},
 	{
 		id: 'consistency',
 		title: 'Consistency',
 		description:
 			'Design a sleek and minimal UI that didn\'t distract from the artwork itself',
-		frame: '/asign-problem-consistency.png',
+		frame: '',
 	},
 ];
 
@@ -212,20 +214,22 @@ export const CLEVERTAP_PROBLEMS = [
 		description:
 			'The existing pages had no visual graphics or diagrams to help users understand the product or its functionality at a glance.',
 		frame: '/clevertap-problem-visual.png',
+        sticker: '/clevertap_problem1_sticker.png',
 	},
 	{
 		id: 'outdated-ui',
 		title: 'Outdated user interface',
 		description:
 			"The UI felt outdated and didn't reflect the current product quality or brand identity.",
-		frame: '/clevertap-problem-ui.png',
+		frame: '/clevertap_problem2.png',
+        sticker: '/clevertap_problem2_sticker.png',
 	},
 	{
 		id: 'inconsistent-structure',
 		title: 'Inconsistent page structure',
 		description:
 			'Many product pages lacked visual and structural consistency, leading to a disjointed experience across the site',
-		frame: '/clevertap-problem-structure.png',
+		frame: ''
 	},
 ];
 

@@ -199,4 +199,26 @@
   .problem-sticker {
     display: none !important;
   }
+
+  .work-item-button {
+    padding: 0.7rem 1.3rem;
+    font-size: 1rem;
+  }
+
+  .skill-tag {
+    padding: 1.1rem 1.2rem;
+    min-width: 120px;
+    max-width: 100%;
+    border-radius: 30px;
+    margin: 0 6px 8px 0;
+    gap: 0.4rem;
+  }
+  .skill-tag p {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    word-break: break-word;
+  }
 }

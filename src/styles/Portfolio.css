@@ -346,21 +346,21 @@ html, body {
   will-change: transform;
   z-index: 1000;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 200px;
   touch-action: none;
   isolation: isolate;
   position: relative;
   margin: 0 10px;
+  box-shadow: none; /* Ensure no box-shadow */
 }
 
 .skill-tag p {
-  color: #FFFFFF;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 20px;
+  color: #FFFFFF;
+  margin: 0;
 }
 
-/* Light mode overrides */
 body.light-mode .skill-tag {
   background: #313131 !important;
   color: #F9F9F9 !important;
@@ -368,6 +368,38 @@ body.light-mode .skill-tag {
 
 body.light-mode .skill-tag p {
   color: #F9F9F9 !important;
+}
+
+@media (max-width: 768px) {
+  .skill-tag {
+    min-width: 120px;
+    max-width: 100%;
+    padding: 10px 14px;
+    border-radius: 30px;
+    margin: 0 6px 8px 0;
+    gap: 0.4rem;
+  }
+  .skill-tag p {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-tag {
+    min-width: 90px;
+    padding: 8px 10px;
+    border-radius: 22px;
+    gap: 0.3rem;
+  }
+  .skill-tag p {
+    font-size: 0.92rem;
+    line-height: 1.1;
+  }
 }
 
 .illustration{

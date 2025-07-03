@@ -810,7 +810,7 @@ body.light-mode .more-work-item {
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0;
-    position: static;
+    overflow: hidden;
   }
 
   .skill-list {
@@ -819,7 +819,7 @@ body.light-mode .more-work-item {
     justify-content: flex-start;
     padding: 0;
     margin: 0;
-    position: static;
+    position: relative;
   }
 
   .skill-tag {

@@ -183,4 +183,12 @@
   .problem-description {
     font-size: 0.9rem;
   }
+
+  .problems-frame,
+  .frame-container,
+  .problem-image-container,
+  .problem-image,
+  .problem-sticker {
+    display: none !important;
+  }
 }

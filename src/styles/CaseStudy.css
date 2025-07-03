@@ -101,7 +101,7 @@
 
 @media (max-width: 480px) {
   .case-study {
-    margin: 0 15px;
+    margin: 0;
     padding-top: 6rem;
   }
   

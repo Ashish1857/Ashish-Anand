@@ -249,7 +249,7 @@ html, body {
 
   border: 2px solid rgba(99, 102, 241, 0.4);
   border-radius: 24px;
-  background: rgba(128, 128, 128, 0.1);
+  background: transparent;
   backdrop-filter: blur(10px);
   margin: 0 5%;
   min-height: 400px;

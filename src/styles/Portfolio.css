@@ -891,4 +891,8 @@ padding: 2rem;
     width: 70px !important;
     height: 40px !important;
   }
+
+  .more-work-container{
+    margin-bottom: 40px;
+  }
 }

@@ -138,8 +138,19 @@
 }
 
 .frame-sticker img {
-  width: 48px;
-  height: 48px;
+  width: 65px;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Specific sticker size for ERP_Problem2.png on desktop */
+@media (min-width: 769px) {
+  .problem-frame-image[src="/ERP_Problem2.png"] + .frame-sticker img,
+  .frame-sticker img[src="/ERP_problem2_sticker.png"] {
+    width: 65px !important;
+    height: auto !important;
+    max-width: 100%;
+  }
 }
 
 .problem-frame-image {

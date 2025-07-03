@@ -76,7 +76,7 @@ export const ERPNEXT_PROCESS = [
 export const ERPNEXT_DESCRIPTION =
 	"I Led The End-To-End Visual Redesign Of All ERPNext Module Pages, And Redesigned The Product Pages Like Frappe CRM, Learning, Lending Etc. Aligning Them With Frappe's Updated Design Standards. This Included Integrating New Product Screenshots And Ensuring Consistency Across Layouts, Typography, And UI Elements. I Worked Independently As The Sole Designer On The Project, Collaborating Closely With The Content Team To Ensure The Copy Complemented The Visual Hierarchy And Overall Aesthetic.";
 
-export const ERPNEXT_HERO_IMAGE = "/erp.png";
+export const ERPNEXT_HERO_IMAGE = typeof window !== "undefined" && window.innerWidth <= 768 ? "/erp_mobile.png" : "/erp.png";
 export const ERPNEXT_TITLE = "ERPNext";
 
 export const ECODEN_PROBLEMS = [

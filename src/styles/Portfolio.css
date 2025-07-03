@@ -441,7 +441,7 @@ body.light-mode .what-do-section {
 
 body.light-mode .what-do-content {
   border: 2px solid #DCDCDC !important;
-  background: #f5f5f5;
+  background: transparent;
   backdrop-filter: blur(10px);
 }
 

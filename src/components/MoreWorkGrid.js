@@ -66,7 +66,7 @@ export default function MoreWorkGrid({ isDarkMode }) {
                 src="/work4.png"
                 alt="Work 4"
                 className="more-work-image"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{ width: "100%", height: "100%", objectFit: "inherit" }}
               />
             </div>
           </div>

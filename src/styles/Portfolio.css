@@ -311,10 +311,8 @@ html, body {
   overflow: visible;
   border: none;
   width: 100%;
-  touch-action: none;
-  z-index: 100;
-  isolation: isolate;
-
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -322,8 +320,13 @@ html, body {
 
 .skill-list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.2rem;
   position: relative;
-  padding:0;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .skills-container:active {
@@ -333,7 +336,6 @@ html, body {
 .skill-tag {
   background: #6366F1;
   color: #FFFFFF;
-  min-width: 300px;
   padding: 20px;
   border-radius: 50px;
   display: flex;
@@ -346,21 +348,21 @@ html, body {
   will-change: transform;
   z-index: 1000;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  min-width: 250px;
   touch-action: none;
   isolation: isolate;
   position: relative;
   margin: 0 10px;
-  box-shadow: none; /* Ensure no box-shadow */
 }
 
 .skill-tag p {
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 20px;
   color: #FFFFFF;
-  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+  line-height: 20px;
 }
 
+/* Light mode overrides */
 body.light-mode .skill-tag {
   background: #313131 !important;
   color: #F9F9F9 !important;
@@ -370,43 +372,11 @@ body.light-mode .skill-tag p {
   color: #F9F9F9 !important;
 }
 
-@media (max-width: 768px) {
-  .skill-tag {
-    min-width: 120px;
-    max-width: 100%;
-    padding: 10px 14px;
-    border-radius: 30px;
-    margin: 0 6px 8px 0;
-    gap: 0.4rem;
-  }
-  .skill-tag p {
-    font-size: 1rem;
-    line-height: 1.2;
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    word-break: break-word;
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-tag {
-    min-width: 90px;
-    padding: 8px 10px;
-    border-radius: 22px;
-    gap: 0.3rem;
-  }
-  .skill-tag p {
-    font-size: 0.92rem;
-    line-height: 1.1;
-  }
-}
-
 .illustration{
   position: absolute;
-  top:-98px;
+  top:-108px;
   left:0px;
-  transform: rotate(-30deg);
+  transform: rotate(-27deg);
 }
 .prototyping{
   position: absolute;
@@ -417,12 +387,13 @@ body.light-mode .skill-tag p {
 
 .infoarch{
   bottom: 10px;
+  left: 188px;
 }
 
 .sitemaps{
   position: absolute;
   bottom: 28px;
-  right: 281px;
+  right: 178px;
   transform: rotate(-20deg);
 }
 

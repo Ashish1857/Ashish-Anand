@@ -27,7 +27,7 @@ export default function HeroSection({ isDarkMode, toggleTheme }) {
           <div className={`product-designer-row ${!isDarkMode ? 'light-mode' : ''}`}>
             Product Designer
             <div className="profile-image">
-              <img src="/profile.png" alt="Pratiksha" />
+              <img src={`${isDarkMode ? "/profile.png" : "/profile_light.png"}`} alt="Pratiksha" />
             </div>
           </div>
         </div>

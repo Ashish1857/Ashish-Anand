@@ -10,13 +10,14 @@ export const ERPNEXT_PROBLEMS = [
 		id: "ui",
 		title: "Outdated UI",
 		description: "Outdated UI that didn't reflect the product's current capabilities",
-		frame: "/erpnext-problem-ui.png",
+		frame: "/ERP_Problem2.png",
+        sticker: "/ERP_problem2_sticker.png",
 	},
 	{
 		id: "engagement",
 		title: "User Engagement",
 		description: "Low user engagement due to lack of visual appeal and clarity",
-		frame: "/erpnext-problem-engagement.png",
+		frame: "",
 	},
 ];
 

@@ -8,13 +8,14 @@ export default function ProblemsSection({ isDarkMode, problemsData = [] }) {
     return null;
   }
 
+  const activeProblem = problemsData.find(p => p.id === activeProblems);
+
   return (
     <div className={`problems-section ${!isDarkMode ? 'light-mode' : ''}`}>
       <div className="problems-container">
         <h2 className={`problems-title ${!isDarkMode ? 'light-mode' : ''}`}>
           Problems
         </h2>
-        
         <div className="problems-content">
           {/* Left side - Problems list */}
           <div className="problems-list">
@@ -38,25 +39,28 @@ export default function ProblemsSection({ isDarkMode, problemsData = [] }) {
               </div>
             ))}
           </div>
-          
           {/* Right side - Frame display */}
           <div className="problems-frame">
             <div className="frame-container">
-              <img 
-                src={problemsData.find(p => p.id === activeProblems)?.frame || problemsData[0]?.frame} 
-                alt={`${activeProblems} problem illustration`}
-                className="problem-frame-image"
-                height={364}
-                width={"667px"}
-              />
-              {problemsData.find(p => p.id === activeProblems)?.sticker && (
-                <div className="frame-sticker">
+              {activeProblem && activeProblem.frame ? (
+                <>
                   <img 
-                    src={problemsData.find(p => p.id === activeProblems)?.sticker} 
-                    alt="Problem sticker" 
+                    src={activeProblem.frame} 
+                    alt={`${activeProblems} problem illustration`}
+                    className="problem-frame-image"
+                    height={364}
+                    width={"667px"}
                   />
-                </div>
-              )}
+                  {activeProblem.sticker && (
+                    <div className="frame-sticker">
+                      <img 
+                        src={activeProblem.sticker} 
+                        alt="Problem sticker" 
+                      />
+                    </div>
+                  )}
+                </>
+              ) : null}
             </div>
           </div>
         </div>

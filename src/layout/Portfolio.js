@@ -140,6 +140,7 @@ export default function Portfolio() {
                 description={work.description}
                 isDarkMode={isDarkMode}
                 projectId={work.id}
+                imageMobile={work.imageMobile}
               />
             ))}
           </div>
@@ -154,6 +155,35 @@ export default function Portfolio() {
           </h2>
           <MoreWorkGrid isDarkMode={isDarkMode} />
         </div>
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          position: "relative",
+          cursor: "pointer"
+        }}
+        onClick={() =>
+          window.open(
+            "https://www.linkedin.com/in/pratikshachettiar/",
+            "_blank",
+            "noopener,noreferrer"
+          )
+        }
+        aria-label="Get in touch"
+      >
+        <img
+          src={isDarkMode ? "/dark_footer.png" : "/light_footer.png"}
+          alt="Footer"
+          style={{
+            width: "100%",
+            maxWidth: window.innerWidth <= 768 ? 500 : 1440,
+            height: "auto"
+          }}
+        />
       </div>
     </SpaceBackground>
   );

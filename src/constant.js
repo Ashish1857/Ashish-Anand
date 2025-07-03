@@ -252,24 +252,28 @@ export const WORK_ITEMS = [
   {
     id: 'erpnext',
     image: '/erp.png',
+    imageMobile: '/erp_mobile.png',
     title: 'ERPNext',
     description: 'I worked on redesigning core web pages of ERPNext an open-source ERP system focusing on usability improvements and visual consistency.'
   },
   {
     id: 'clevertap',
     image: '/clevertap.png',
+    imageMobile: '/clevertap_mobile.png',
     title: 'Clevertap',
     description: 'Designed visually engaging pages to support CleverTap\'s customer engagement goals.'
   },
   {
     id: 'ecoden',
     image: '/ecoden.png',
+    imageMobile: '/ecoden_mobile.png',
     title: 'Ecoden',
     description: 'Visual design for a smart home app that makes connected living effortless.'
   },
   {
     id: 'asign',
     image: '/asign.png',
+    imageMobile: '/asign_mobile.png',
     title: 'Asign.art',
     description: 'Crafted clean, expressive web designs to elevate artists\' presence on the Asign platform.'
   }

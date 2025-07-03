@@ -875,6 +875,13 @@ padding: 2rem;
     margin-left: 0;
     width: 100%;
   }
+  .work-item-image img {
+  object-fit: contain !important;
+}
+.work-item-image{
+  height: 100%;
+}
+
 }
 
 @media (max-width: 480px) {

@@ -11,9 +11,17 @@ import {
 } from '../constant';
 
 export default function AsignCaseStudy() {
+	const [isMobile, setIsMobile] = React.useState(window.matchMedia("(max-width: 768px)").matches);
+	React.useEffect(() => {
+		const mediaQuery = window.matchMedia("(max-width: 768px)");
+		const handleChange = () => setIsMobile(mediaQuery.matches);
+		mediaQuery.addEventListener("change", handleChange);
+		return () => mediaQuery.removeEventListener("change", handleChange);
+	}, []);
+
 	return (
 		<CaseStudy
-			heroImage={ASIGN_HERO_IMAGE}
+			heroImage={isMobile ? "/asign_mobile.png" : ASIGN_HERO_IMAGE}
 			title={ASIGN_TITLE}
 			description={ASIGN_DESCRIPTION}
 			problemsData={ASIGN_PROBLEMS}
@@ -21,6 +29,14 @@ export default function AsignCaseStudy() {
 			userBaseData={ASIGN_USER_BASE}
 			goalData={ASIGN_GOAL}
 			processData={ASIGN_PROCESS}
-		/>
+		>
+			<div className="goal-image">
+				<img
+					className="goal-image-display"
+					src={isMobile ? "/asign_mobile.png" : ASIGN_GOAL.image}
+					alt="Asign Goal"
+				/>
+			</div>
+		</CaseStudy>
 	);
 }

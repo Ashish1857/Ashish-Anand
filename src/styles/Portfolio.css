@@ -260,7 +260,7 @@ html, body {
 
 .what-do-content.light-mode {
   border: 2px solid #DCDCDC !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: #f5f5f5;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
@@ -428,12 +428,12 @@ html, body {
 
 /* Body-based light mode styles */
 body.light-mode .what-do-section {
-  background: #ffffff !important;
+  background: #f5f5f5 !important;
 }
 
 body.light-mode .what-do-content {
   border: 2px solid #DCDCDC !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: #f5f5f5;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
@@ -483,7 +483,7 @@ body.light-mode .profile-image::after {
 }
 
 .featured-work-section.light-mode {
-  background: #f8f9fa !important;
+  background: #f5f5f5 !important;
 }
 
 .featured-work-container {
@@ -516,7 +516,7 @@ body.light-mode .profile-image::after {
   flex-direction: column;
   gap: 6rem;
   max-width: 100%;
- margin: 0 40px 0 40px;
+  margin: 0; /* Remove left and right margin */
 }
 
 .work-item {
@@ -627,7 +627,7 @@ body.light-mode .profile-image::after {
 }
 
 .more-work-section.light-mode {
-  background: #ffffff !important;
+  background: #f5f5f5 !important;
 }
 
 .more-work-container {
@@ -691,7 +691,7 @@ body.light-mode .profile-image::after {
 }
 
 body.light-mode .more-work-section {
-  background: #ffffff !important;
+  background: #f5f5f5 !important;
 }
 
 body.light-mode .more-work-title {
@@ -706,8 +706,8 @@ body.light-mode .more-work-item {
 /* Responsive styles for mobile and smaller screens */
 @media (max-width: 768px) {
   .main-content {
-    padding: 1rem 3%;
-    height: 70vh;
+    padding: 10rem 3%;
+    height: auto;
     min-height: auto;
   }
   
@@ -748,18 +748,107 @@ body.light-mode .more-work-item {
     flex-direction: column;
     gap: 1rem;
   }
+
+  .what-do-section {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .what-do-content {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem 1.2rem; /* Add left and right padding */
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+    gap: 1.2rem;
+    box-sizing: border-box;
+  }
+
+  .what-do-title {
+    font-size: 1.7rem;
+    line-height: 2.2rem;
+    width: 100%;
+    white-space: normal;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .description-text {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .description {
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  .skills-container {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    margin-top: 1.2rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    position: static;
+  }
+
+  .skill-list {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    position: static;
+  }
+
+  .skill-tag {
+    min-width: 110px;
+    padding: 10px;
+    font-size: 0.95rem;
+    margin: 0 6px 8px 0;
+    box-sizing: border-box;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  /* Remove any absolute positioning for mobile */
+  .illustration,
+  .prototyping,
+  .infoarch,
+  .sitemaps {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  .featured-work-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .work-item-description {
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
-  .hello-row {
-    gap: 0.5rem;
-  }
-  
-  .hello-text {
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-  
+
+
   .theme-toggle img {
     width: 70px !important;
     height: 40px !important;

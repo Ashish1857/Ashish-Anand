@@ -333,7 +333,8 @@ html, body {
 
 .skill-tag {
   background: #6366F1;
-  color: white;
+  color: #FFFFFF;
+  min-width: 300px;
   padding: 20px;
   border-radius: 50px;
   display: flex;
@@ -355,9 +356,20 @@ html, body {
 }
 
 .skill-tag p {
+  color: #FFFFFF;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 20px;
+}
+
+/* Light mode overrides */
+body.light-mode .skill-tag {
+  background: #313131 !important;
+  color: #F9F9F9 !important;
+}
+
+body.light-mode .skill-tag p {
+  color: #F9F9F9 !important;
 }
 
 .illustration{

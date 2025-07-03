@@ -8,13 +8,15 @@ export default function SkillTag({
   onMouseDown 
 }) {
   return (
-    <li 
-      className={`skill-tag ${id} ${isAnimating ? 'bouncing' : ''}`}
-      data-skill-id={id}
+    <li
+      className={`skill-tag${isAnimating ? " bouncing" : ""} ${id}`}
       onMouseDown={onMouseDown}
+      tabIndex={0}
+      role="button"
+      aria-label={title}
     >
-      <span className="icon">{icon}</span>
-      {title}
+      {icon}
+      <p>{title}</p>
     </li>
   );
 }

@@ -276,10 +276,10 @@ export const WORK_ITEMS = [
 ];
 
 export const SKILL_TAGS = [
-  { id: 'illustration', icon: '🎨', title: 'Illustration' },
-  { id: 'prototyping', icon: '📱', title: 'Prototyping' },
-  { id: 'htmlcss', icon: '💻', title: 'HTML & CSS' },
-  { id: 'uxui', icon: '🎭', title: 'UX / UI' },
-  { id: 'infoarch', icon: '🏗️', title: 'Info Architecture' },
-  { id: 'sitemaps', icon: '🗺️', title: 'Site Maps' }
+  { id: 'illustration', icon: '/illustration.png', title: 'Illustration' },
+  { id: 'prototyping', icon: '/proto.png', title: 'Prototyping' },
+  { id: 'htmlcss', icon: '/html.png', title: 'HTML & CSS' },
+  { id: 'uxui', icon: '/ux.png', title: 'UX / UI' },
+  { id: 'infoarch', icon: '/arch.png', title: 'Info Architecture' },
+  { id: 'sitemaps', icon: '/site.png', title: 'Site Maps' }
 ];

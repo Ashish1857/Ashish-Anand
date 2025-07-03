@@ -108,16 +108,17 @@ export default function Portfolio() {
 
           <div className="skills-container" ref={skillsContainerRef}>
             <ul className="skill-list">
-            {SKILL_TAGS.map(skill => (
-              <SkillTag
-                key={skill.id}
-                id={skill.id}
-                icon={skill.icon}
-                title={skill.title}
-                isAnimating={isAnimating[skill.id]}
-                onMouseDown={(e) => handleMouseDown(e, skill.id)}
-              />
-            ))}
+              {SKILL_TAGS.map(skill => (
+                <SkillTag
+                  key={skill.id}
+                  id={skill.id}
+                  // Render as <img src=...> for icon
+                  icon={<img src={skill.icon} alt={skill.title} style={{ width: 28, height: 28 }} />}
+                  title={skill.title}
+                  isAnimating={isAnimating[skill.id]}
+                  onMouseDown={(e) => handleMouseDown(e, skill.id)}
+                />
+              ))}
             </ul>
           </div>
         </div>

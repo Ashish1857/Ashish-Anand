@@ -11,6 +11,7 @@ import "../styles/Navigation.css";
 import "../styles/Animations.css";
 import "../styles/Portfolio.css";
 import { WORK_ITEMS, SKILL_TAGS } from "../constant";
+import { motion, useAnimation } from "framer-motion";
 
 export default function Portfolio() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -18,9 +19,10 @@ export default function Portfolio() {
     return savedTheme ? JSON.parse(savedTheme) : true;
   });
   const [isAnimating, setIsAnimating] = useState({});
-  const skillsContainerRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const skillsContainerRef = useRef(null);
+
 
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
@@ -107,19 +109,7 @@ export default function Portfolio() {
           </div>
 
           <div className="skills-container" ref={skillsContainerRef}>
-            <ul className="skill-list">
-              {SKILL_TAGS.map(skill => (
-                <SkillTag
-                  key={skill.id}
-                  id={skill.id}
-                  // Render as <img src=...> for icon
-                  icon={<img src={skill.icon} alt={skill.title} style={{ width: 28, height: 28 }} />}
-                  title={skill.title}
-                  isAnimating={isAnimating[skill.id]}
-                  onMouseDown={(e) => handleMouseDown(e, skill.id)}
-                />
-              ))}
-            </ul>
+            <SkillTag />
           </div>
         </div>
       </div>

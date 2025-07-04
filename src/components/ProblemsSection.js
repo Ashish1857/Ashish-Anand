@@ -10,6 +10,11 @@ export default function ProblemsSection({ isDarkMode, problemsData = [] }) {
 
   const activeProblem = problemsData.find(p => p.id === activeProblems);
 
+  // Only show the right-side frame if there is a frame and at least one problem has a frame (not just the current one)
+  const showFrame =
+    !!activeProblem?.frame &&
+    problemsData.some(p => p.frame && p.frame.trim() !== "");
+
   return (
     <div className={`problems-section ${!isDarkMode ? 'light-mode' : ''}`}>
       <div className="problems-container">
@@ -40,36 +45,28 @@ export default function ProblemsSection({ isDarkMode, problemsData = [] }) {
             ))}
           </div>
           {/* Right side - Frame display */}
-          <div className="problems-frame">
-            <div
-              className="frame-container"
-              style={
-                !activeProblem?.frame
-                  ? { visibility: "hidden" }
-                  : undefined
-              }
-            >
-              {activeProblem && activeProblem.frame ? (
-                <>
-                  <img 
-                    src={activeProblem.frame} 
-                    alt={`${activeProblems} problem illustration`}
-                    className="problem-frame-image"
-                    height={364}
-                    width={"667px"}
-                  />
-                  {activeProblem.sticker && (
-                    <div className="frame-sticker">
-                      <img 
-                        src={activeProblem.sticker} 
-                        alt="Problem sticker" 
-                      />
-                    </div>
-                  )}
-                </>
-              ) : null}
+          {showFrame ? (
+            <div className="problems-frame">
+              <div className="frame-container">
+                <img 
+                  src={activeProblem.frame}
+                  alt={`${activeProblems} problem illustration`}
+                  className="problem-frame-image"
+                  height={364}
+                  width={"667px"}
+                  style={{ borderRadius: 16 }}
+                />
+                {activeProblem.sticker && (
+                  <div className="frame-sticker">
+                    <img 
+                      src={activeProblem.sticker} 
+                      alt="Problem sticker" 
+                    />
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </div>

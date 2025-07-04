@@ -8,7 +8,8 @@ import ProcessSection from "./ProcessSection";
 import "../styles/CaseStudy.css";
 
 export default function CaseStudy({ 
-  heroImage = "/clevertap.png", 
+  heroImage,
+  showHeroImage = true,
   title = "Clevertap", 
   description = "CleverTap Is A Customer Engagement Platform That Helps Brands Build Personalized User Experiences. I Designed The Graphics And Visuals For Key Product Pages Like RenderMax And Intellimend, Helping Users Quickly Understand Complex Product Features Through Clarity-Focused Visuals." ,
   problemsData = [],
@@ -41,16 +42,31 @@ export default function CaseStudy({
   return (
     <SpaceBackground isDarkMode={isDarkMode}>
       <Navigation isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <div className={`case-study ${!isDarkMode ? 'light-mode' : ''}`}>
+      <div
+        className={`case-study ${!isDarkMode ? 'light-mode' : ''}`}
+        style={{
+          paddingTop: showHeroImage ? undefined : 0,
+          marginTop: showHeroImage ? undefined : 0
+        }}
+      >
         {/* Hero Image Section */}
-        <div className="case-study-hero">
-          <img src={heroImage} alt={`${title} case study`} />
-        </div>
+        {showHeroImage && heroImage ? (
+          <div className="case-study-hero">
+            <img src={heroImage} alt={`${title} case study`} />
+          </div>
+        ) : null}
         
         {/* Content Section */}
-        <div className="case-study-content">
+        <div
+          className="case-study-content"
+          style={
+            !showHeroImage
+              ? { marginTop: 0, paddingTop: 0 }
+              : undefined
+          }
+        >
           <h1 className={`case-study-title ${!isDarkMode ? 'light-mode' : ''}`}>
-            Introduction : {title}
+            {showHeroImage ? <>Introduction : {title}</> : title}
           </h1>
           <p className={`case-study-description ${!isDarkMode ? 'light-mode' : ''}`}>
             {description}

@@ -51,17 +51,6 @@ export default function LightModeBackground() {
           animation: float-cloud2 30s ease-in-out infinite;
         }
         
-        .flying-pigeon {
-          position: absolute;
-          top: 20%;
-          right: -60px;
-          width: 50px;
-          height: 40px;
-          font-size: 2.5rem;
-          animation: fly-and-land 12s ease-in-out 1;
-          z-index: 5;
-        }
-        
         @keyframes float-cloud1 {
           0%, 100% { transform: translateX(0px) translateY(0px); }
           25% { transform: translateX(25px) translateY(-15px); }
@@ -76,52 +65,12 @@ export default function LightModeBackground() {
           60% { transform: translateX(-15px) translateY(8px); }
           80% { transform: translateX(10px) translateY(-10px); }
         }
-        
-        @keyframes fly-and-land {
-          0% {
-            right: -60px;
-            top: 20%;
-            transform: translateY(0px) rotate(5deg) scale(1);
-          }
-          15% {
-            transform: translateY(-25px) rotate(-3deg) scale(1.1);
-          }
-          30% {
-            transform: translateY(15px) rotate(2deg) scale(0.9);
-          }
-          45% {
-            right: 45%;
-            top: 32%;
-            transform: translateY(-10px) rotate(-4deg) scale(1.1);
-          }
-          60% {
-            right: 47%;
-            top: 34%;
-            transform: translateY(0px) rotate(0deg) scale(1);
-          }
-          70% {
-            right: 47%;
-            top: 34%;
-            transform: translateY(-5px) rotate(0deg) scale(1);
-          }
-          80% {
-            right: 47%;
-            top: 34%;
-            transform: translateY(0px) rotate(0deg) scale(1);
-          }
-          100% {
-            right: 47%;
-            top: 34%;
-            transform: translateY(0px) rotate(0deg) scale(1);
-          }
-        }
       `}</style>
       
       <div className="light-mode-bg">
         <div className="white-background"></div>
         <div className="cloud-left"></div>
         <div className="cloud-right"></div>
-        <div className="flying-pigeon">🕊️</div>
       </div>
     </>
   );
